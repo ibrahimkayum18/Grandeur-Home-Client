@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 // import axios from "axios";
 import { Helmet } from "react-helmet";
 import { AuthContext } from "../../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const [email, setEmail] = useState('')
@@ -23,8 +24,14 @@ const Login = () => {
     login(email, password)
       .then((res) => {
         setUser(res.data)
-        toast.success('Logged In Successfully')
-        
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "User Log In Successfull",
+          showConfirmButton: false,
+          timer: 2000
+        });
+        navigate(location?.state ? location.state : '/')
         // if(user){
         //   const loggedUser = {email}
         //   axios.post( 'https://job-hub-server-six.vercel.app/jwt',loggedUser, {withCredentials: true})
@@ -41,7 +48,14 @@ const Login = () => {
   const havdleGoogleLogIn = () => {
     googleLogin()
       .then(() => {
-        toast.success('Logged In Successfully')
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "User Log In Successfull",
+          showConfirmButton: false,
+          timer: 2000
+        });
+        navigate(location?.state ? location.state : '/')
         // if(user){
         //   const loggedUser = {email}
         //   axios.post( 'https://job-hub-server-six.vercel.app/jwt',loggedUser, {withCredentials: true})
@@ -58,7 +72,7 @@ const Login = () => {
   return (
     <div  data-aos="fade-up" className="flex items-center justify-center bg-sky-200 py-10">
       <Helmet>
-        <title>Log In | Job Hub</title>
+        <title>Log In | Grandeur Home</title>
       </Helmet>
       <div className="w-full  flex justify-center items-center">
         <div className="p-5 md:p-10 rounded-lg w-7/12 mx-auto bg-base-100">

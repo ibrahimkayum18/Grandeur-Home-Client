@@ -1,0 +1,48 @@
+[
+    {
+      "property_image": "https://i.ibb.co/c3Ts0JZ/h1.jpg",
+      "property_location": "123 Main Street, Cityville",
+      "price_range": "$500,000 - $550,000",
+      "verification_status": "Verified",
+      "property_title": "Modern Luxury Home with Stunning Views",
+      "agent_name": "John Smith",
+      "agent_image": "https://example.com/agent1.jpg"
+    },
+    {
+      "property_image": "https://i.ibb.co/MNV5XtK/h2.jpg",
+      "property_location": "456 Oak Avenue, Townsville",
+      "price_range": "$350,000 - $380,000",
+      "verification_status": "Pending Verification",
+      "property_title": "Charming Cottage with Spacious Garden",
+      "agent_name": "Emily Johnson",
+      "agent_image": "https://example.com/agent2.jpg"
+    },
+    {
+      "property_image": "https://i.ibb.co/SNvGhc6/3h.jpg",
+      "property_location": "789 Pine Street, Villagetown",
+      "price_range": "$700,000 - $750,000",
+      "verification_status": "Not Verified",
+      "property_title": "Contemporary Urban Loft with Skyline Views",
+      "agent_name": "David Miller",
+      "agent_image": "https://example.com/agent3.jpg"
+    },
+    {
+      "property_image": "https://i.ibb.co/rk1Pkz8/h4.jpg",
+      "property_location": "101 Elm Road, Hamletville",
+      "price_range": "$450,000 - $480,000",
+      "verification_status": "Verified",
+      "property_title": "Cozy Family Home with Modern Amenities",
+      "agent_name": "Sarah Davis",
+      "agent_image": "https://example.com/agent4.jpg"
+    },
+    {
+      "property_image": "https://i.ibb.co/kBxWzhp/h5.jpg",
+      "property_location": "202 Maple Lane, Suburbia City",
+      "price_range": "$600,000 - $650,000",
+      "verification_status": "Verified",
+      "property_title": "Luxurious Mansion with Private Pool",
+      "agent_name": "Michael Brown",
+      "agent_image": "https://example.com/agent5.jpg"
+    }
+  ]
+  

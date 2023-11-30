@@ -1,0 +1,21 @@
+[
+    {
+      "name": "Alice Johnson",
+      "image": "https://i.ibb.co/rkVQd49/p1.jpg",
+      "description": "Amazing property! The location is perfect, and the amenities are top-notch. I couldn't be happier with my new home.",
+      "property_title": "Luxurious Beachfront Condo"
+    },
+    {
+      "name": "Bob Smith",
+      "image": "https://i.ibb.co/7NL3M2J/p2.jpg",
+      "description": "I recently moved into this property, and it exceeded all my expectations. The view from the balcony is breathtaking, and the interior design is superb.",
+      "property_title": "Modern City Penthouse"
+    },
+    {
+      "name": "Eva Martinez",
+      "image": "https://i.ibb.co/4Kr5ZVf/p3.jpg",
+      "description": "I'm so glad I found this gem! The property has a lovely garden, and the neighborhood is peaceful. The spacious rooms and natural light make it a perfect home.",
+      "property_title": "Charming Suburban Cottage"
+    }
+  ]
+  

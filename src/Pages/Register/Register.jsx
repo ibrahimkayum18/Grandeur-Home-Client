@@ -6,6 +6,7 @@ import { Helmet } from "react-helmet";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import auth from "../../../firebase.config";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const { createUser, logOut } = useContext(AuthContext);
@@ -27,7 +28,13 @@ const Register = () => {
           photoURL: photo,
         })
           .then(() => {
-            toast.success('User Created Successfully');
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "User Created Successfully",
+              showConfirmButton: false,
+              timer: 2000
+            });
             logOut();
             navigate('/login')
           })
