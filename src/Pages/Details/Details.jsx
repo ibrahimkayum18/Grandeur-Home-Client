@@ -5,34 +5,44 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const Details = () => {
-    const [input, setInput] = useState('');
+    const [allReview, setAllReview] = useState([])
+  const [reviews, setReviews] = useState([]);
+  const [input, setInput] = useState("");
   const [property, setProperty] = useState([]);
   const [properties] = useProperties();
   const { id } = useParams();
-  const {user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const axiosSecure = useAxiosSecure();
   useEffect(() => {
     if (properties.length > 0) {
       const find = properties.find((item) => item._id === id);
       setProperty(find);
+        const findReview = reviews.filter(item => item.property_title == find.property_title)
+        setAllReview(findReview);
     }
-  }, [id, properties]);
-//   console.log(user);
+    
+  }, [id, properties, reviews]);
+    console.log(allReview);
+  useEffect(() => {
+    axiosSecure.get("/reviews").then((res) => {
+      setReviews(res.data);
+    });
+  }, [axiosSecure]);
+//   console.log(reviews);
 
   const handleReview = () => {
     const review = {
-        reviewre_name: user.displayName,
-        reviewer_email: user.email,
-        reviewre_photo: user.photoURL,
-        review_description: input,
-        property_title: property.property_title
-    }
-    axiosSecure.post('/reviews', review)
-    .then(res => {
-        console.log(res.data);
-    })
+      reviewre_name: user.displayName,
+      reviewer_email: user.email,
+      reviewre_photo: user.photoURL,
+      review_description: input,
+      property_title: property.property_title,
+    };
+    axiosSecure.post("/reviews", review).then((res) => {
+      console.log(res.data);
+    });
     // console.log(review);
-  }
+  };
 
   return (
     <div>
@@ -53,6 +63,18 @@ const Details = () => {
         <h2 className="text-3xl text-center">
           Customers Reviews On this Property
         </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {
+                allReview.map(item => <div key={item._id} className="px-5 lg:px-0 space-y-3 p-8">
+                <img className="w-32 h-32 mx-auto rounded-full" src={item.reviewre_photo} alt="" />
+                <div className="px-5">
+                <h2 className="text-2xl">Name: {item.reviewre_name}</h2>
+                <h2 className="text-3xl">Review on: {item.property_title}</h2>
+                <p>{item.review_description}</p>
+                </div>
+            </div>)
+            }
+        </div>
       </div>
       <div className="text-center">
         <button
@@ -68,7 +90,8 @@ const Details = () => {
             <div>
               <form>
                 <textarea
-                onChange={(e) => setInput(e.target.value)} value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  value={input}
                   className="textarea textarea-accent w-[90%]"
                   placeholder="Your Reviews..."
                 ></textarea>
@@ -77,7 +100,9 @@ const Details = () => {
             <div className="modal-action">
               <form method="dialog">
                 {/* if there is a button in form, it will close the modal */}
-                <button onClick={handleReview} className="btn">Submit</button>
+                <button onClick={handleReview} className="btn">
+                  Submit
+                </button>
               </form>
             </div>
           </div>
