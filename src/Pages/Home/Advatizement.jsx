@@ -1,14 +1,17 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { RiVerifiedBadgeFill } from "react-icons/ri";
+import { Link } from "react-router-dom";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const Advatizement = () => {
+  const axiosSecure = useAxiosSecure();
   const [properties, setProperties] = useState([]);
   useEffect(() => {
-    axios.get("./../../../public/Advertizement.json").then((res) => {
+    axiosSecure.get("/properties").then((res) => {
       setProperties(res.data);
     });
-  }, []);
+  }, [axiosSecure]);
   console.log(properties);
   return (
     <div className="my-20 lg:mx-10">
@@ -26,7 +29,7 @@ const Advatizement = () => {
             className="card card-compact  bg-base-100 shadow-xl "
           >
             <figure>
-              <img className="w-full h-60" src={item.property_image} alt="Shoes" />
+              <img className="w-full h-48" src={item.property_image} alt="Shoes" />
             </figure>
             <div className="card-body">
               <h2 className="card-title">Location: {item.property_location}</h2>
@@ -36,7 +39,9 @@ const Advatizement = () => {
               <p className="text-green-600"><span><RiVerifiedBadgeFill /></span> </p>
               </div>
               <div className="card-actions justify-center w-full">
+              <Link to={`/details/${item._id}`}>
                 <button className="btn btn-primary">Details</button>
+              </Link>
               </div>
             </div>
           </div>

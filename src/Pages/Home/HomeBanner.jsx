@@ -35,7 +35,7 @@ const Banner = () => {
             className="h-screen w-full "
             style={{
               backgroundImage:
-                "url(https://i.ibb.co/jVBT5HL/crime-1862312-1920.jpg)",
+                "url(https://i.ibb.co/f0wHwXt/pexels-binyamin-mellish-106399.jpg)",
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
               overflow: "hidden",
@@ -80,7 +80,7 @@ const Banner = () => {
             className="h-screen w-full"
             style={{
               backgroundImage:
-                "url(https://i.ibb.co/GHNyZPR/psycho-29041-1280.png)",
+                "url(https://i.ibb.co/L6x8gpg/pexels-david-mcbee-1546168.jpg)",
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
               overflow: "hidden",

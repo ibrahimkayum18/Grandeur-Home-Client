@@ -6,6 +6,7 @@ import Register from "../Pages/Register/Register";
 import AllProperties from "../Pages/AllProperties/AllProperties";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import PrivateRouter from "../Provider/PrivetRouter";
+import Details from "../Pages/Details/Details";
 
 
 const Router = createBrowserRouter([
@@ -32,6 +33,10 @@ const Router = createBrowserRouter([
             {
                 path:'/dashboard',
                 element:<PrivateRouter><Dashboard></Dashboard></PrivateRouter>
+            },
+            {
+                path:'/details/:id',
+                element:<PrivateRouter><Details></Details></PrivateRouter>
             }
         ]
     }
