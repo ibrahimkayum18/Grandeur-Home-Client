@@ -3,7 +3,7 @@ import { Link, NavLink, Outlet } from "react-router-dom";
 import { HiMenu } from "react-icons/hi";
 
 const Dashboard = () => {
-  const isAdmin = true;
+  const isAdmin = false;
   const isAgent = false;
   return (
     <div>
