@@ -3,6 +3,7 @@ import useProperties from "../../Hooks/useProperties";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 const Details = () => {
     const [allReview, setAllReview] = useState([])
@@ -37,12 +38,30 @@ const Details = () => {
       reviewre_photo: user.photoURL,
       review_description: input,
       property_title: property.property_title,
+      review_date: new Date()
+
     };
     axiosSecure.post("/reviews", review).then((res) => {
       console.log(res.data);
     });
     // console.log(review);
   };
+
+  // Add this property to whishlist
+  const handleAddToWishlist = item => {
+    axiosSecure.post('/wishlists',item)
+    .then(res => {
+      if(res.data.insertedId){
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Property Addeded to Wishlist",
+          showConfirmButton: false,
+          timer: 1500
+        });
+      }
+    })
+  }
 
   return (
     <div>
@@ -55,7 +74,7 @@ const Details = () => {
           <p>Location: {property.property_location}</p>
           <p>Description</p>
           <p>Proce: {property.price_range}</p>
-          <button className="btn btn-primary">Add to wishlist</button>
+          <button onClick={() =>handleAddToWishlist(property)} className="btn btn-primary">Add to wishlist</button>
         </div>
       </div>
 
