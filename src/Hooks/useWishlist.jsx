@@ -10,7 +10,7 @@ const useWishlist = () => {
     const { refetch, data: myWishes = [] } = useQuery({
         queryKey: ['myWishes', user?.email],
         queryFn: async() => {
-            const res = await axiosSecure.get(`/reviews?email=${user.email}`);
+            const res = await axiosSecure.get(`/wishlists`);
             return res.data;
         }
     })

@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import { Helmet } from "react-helmet";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const Login = () => {
   const [email, setEmail] = useState('')
@@ -12,13 +13,14 @@ const Login = () => {
   const { login, googleLogin } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
+  const axiosPublic = useAxiosPublic();
 
   const handleLogIn = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+    // console.log(email, password);
     setEmail(email)
 
     login(email, password)
@@ -32,39 +34,34 @@ const Login = () => {
           timer: 2000
         });
         navigate(location?.state ? location.state : '/')
-        // if(user){
-        //   const loggedUser = {email}
-        //   axios.post( 'https://job-hub-server-six.vercel.app/jwt',loggedUser, {withCredentials: true})
-        //   .then(res => {
-        //     if(res.data.success){
-        //       navigate(location?.state ? location.state : '/')
-        //     }
-        //   })
-        // }
         
       })
       .catch((error) => console.log(error));
   };
   const havdleGoogleLogIn = () => {
     googleLogin()
-      .then(() => {
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "User Log In Successfull",
-          showConfirmButton: false,
-          timer: 2000
-        });
-        navigate(location?.state ? location.state : '/')
-        // if(user){
-        //   const loggedUser = {email}
-        //   axios.post( 'https://job-hub-server-six.vercel.app/jwt',loggedUser, {withCredentials: true})
-        //   .then(res => {
-        //     if(res.data.success){
-        //       navigate(location?.state ? location.state : '/')
-        //     }
-        //   })
-        // }
+      .then((res) => {
+        const userInfo = {
+          name: res?.user?.displayName,
+          email: res?.user?.email,
+          photo: res?.user?.photoURL
+        }
+         //Post user into database
+         axiosPublic.post('/users',userInfo)
+         .then(res => {
+           console.log(res.data);
+           if(res.data){
+             Swal.fire({
+               position: "top-end",
+               icon: "success",
+               title: "User LoggedIn Successfully",
+               showConfirmButton: false,
+               timer: 2000
+             });
+             navigate('/')
+           }
+         })
+        
       })
       .catch((err) => console.error(err.message));
   };

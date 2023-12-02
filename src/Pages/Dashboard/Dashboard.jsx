@@ -3,6 +3,8 @@ import { Link, NavLink, Outlet } from "react-router-dom";
 import { HiMenu } from "react-icons/hi";
 
 const Dashboard = () => {
+  const isAdmin = false;
+  const isAgent = true;
   return (
     <div>
       <Helmet>
@@ -29,20 +31,61 @@ const Dashboard = () => {
             <ul className="menu p-4 w-64 min-h-full bg-base-200 text-base-content">
               {/* Sidebar content here */}
               <div className="">
-                <li className="list-none">
-                  <NavLink to={"/dashboard"}>My Profile</NavLink>
-                </li>
-                <li className="list-none">
-                  <NavLink to={"/dashboard/wishlist"}>Wishlist</NavLink>
-                </li>
-                <li className="list-none">
-                  <NavLink to={"/dashboard/propertyBought"}>
-                    Property Bought
-                  </NavLink>
-                </li>
-                <li className="list-none">
-                  <NavLink to={"/dashboard/myReviews"}>My Reviews</NavLink>
-                </li>
+                {isAdmin ? (
+                  <>
+                    <li className="list-none">
+                      <NavLink to={"/dashboard"}>Admin Profile</NavLink>
+                    </li>
+                    <li className="list-none">
+                      <NavLink to={"/dashboard/manageProperties"}>Manage Properties</NavLink>
+                    </li>
+                    <li className="list-none">
+                      <NavLink to={"/dashboard/manageUsers"}>
+                        Manage Users
+                      </NavLink>
+                    </li>
+                    <li className="list-none">
+                      <NavLink to={"/dashboard/manageReviews"}>Manage Reviews</NavLink>
+                    </li>
+                  </>
+                ) : isAgent ?(
+                  <>
+                    <li className="list-none">
+                      <NavLink to={"/dashboard/agentProfile"}>Agent Profile</NavLink>
+                    </li>
+                    <li className="list-none">
+                      <NavLink to={"/dashboard/addProperty"}>Add Property</NavLink>
+                    </li>
+                    <li className="list-none">
+                      <NavLink to={"/dashboard/myAddededProperties"}>
+                      My added properties
+                      </NavLink>
+                    </li>
+                    <li className="list-none">
+                      <NavLink to={"/dashboard/mySoldProperties"}>My sold properties</NavLink>
+                    </li>
+                    <li className="list-none">
+                      <NavLink to={"/dashboard/requestedProperties"}>Requested properties</NavLink>
+                    </li>
+                  </>
+                ) : (
+                  <>
+                    <li className="list-none">
+                      <NavLink to={"/dashboard/userProfile"}>My Profile</NavLink>
+                    </li>
+                    <li className="list-none">
+                      <NavLink to={"/dashboard/wishlist"}>Wishlist</NavLink>
+                    </li>
+                    <li className="list-none">
+                      <NavLink to={"/dashboard/propertyBought"}>
+                        Property Bought
+                      </NavLink>
+                    </li>
+                    <li className="list-none">
+                      <NavLink to={"/dashboard/myReviews"}>My Reviews</NavLink>
+                    </li>
+                  </>
+                )}
 
                 <div className="my-6">
                   <hr />

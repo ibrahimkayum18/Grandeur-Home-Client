@@ -11,6 +11,7 @@ import UserProfile from "../Pages/Dashboard/UserPanel/UserProfile/UserProfile";
 import Wishlist from "../Pages/Dashboard/UserPanel/Wishlist/Wishlist";
 import PropertyBought from "../Pages/Dashboard/UserPanel/PropertyBought/PropertyBought";
 import MyReviews from "../Pages/Dashboard/UserPanel/MyReviews/MyReviews";
+import AgentProfile from "../Pages/Dashboard/AgentPanel/AgentProfile";
 
 
 const Router = createBrowserRouter([
@@ -45,7 +46,7 @@ const Router = createBrowserRouter([
         element:<PrivateRouter><Dashboard></Dashboard></PrivateRouter>,
         children:[
             {
-                path:'/dashboard',
+                path:'/dashboard/userProfile',
                 element:<UserProfile></UserProfile>
             },
             {
@@ -59,6 +60,10 @@ const Router = createBrowserRouter([
             {
                 path:'/dashboard/myReviews',
                 element:<MyReviews></MyReviews>
+            },
+            {
+                path:'/dashboard/agentProfile',
+                element:<AgentProfile></AgentProfile>
             }
         ]
     },

@@ -7,9 +7,11 @@ import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import auth from "../../../firebase.config";
 import Swal from "sweetalert2";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const Register = () => {
-  const { createUser, logOut } = useContext(AuthContext);
+  const { createUser } = useContext(AuthContext);
+  const axiosPublic = useAxiosPublic();
   const navigate = useNavigate();
 
   const handleCreateUser = (e) => {
@@ -28,15 +30,32 @@ const Register = () => {
           photoURL: photo,
         })
           .then(() => {
-            Swal.fire({
-              position: "top-end",
-              icon: "success",
-              title: "User Created Successfully",
-              showConfirmButton: false,
-              timer: 2000
-            });
-            logOut();
-            navigate('/login')
+
+            //create user info object to store user info
+            const userInfo = {
+              name: name,
+              email: email,
+              photo: photo,
+            }
+
+            //Post user into database
+            axiosPublic.post('/users',userInfo)
+            .then(res => {
+              console.log(res.data);
+              if(res.data){
+                Swal.fire({
+                  position: "top-end",
+                  icon: "success",
+                  title: "User Created Successfully",
+                  showConfirmButton: false,
+                  timer: 2000
+                });
+                navigate('/')
+              }
+            })
+            .catch(err => {
+              console.log(err);
+            })
           })
           .catch((err) => toast.error(err.message));
       })
