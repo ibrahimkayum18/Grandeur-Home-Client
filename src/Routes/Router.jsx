@@ -7,6 +7,10 @@ import AllProperties from "../Pages/AllProperties/AllProperties";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import PrivateRouter from "../Provider/PrivetRouter";
 import Details from "../Pages/Details/Details";
+import UserProfile from "../Pages/Dashboard/UserPanel/UserProfile/UserProfile";
+import Wishlist from "../Pages/Dashboard/UserPanel/Wishlist/Wishlist";
+import PropertyBought from "../Pages/Dashboard/UserPanel/PropertyBought/PropertyBought";
+import MyReviews from "../Pages/Dashboard/UserPanel/MyReviews/MyReviews";
 
 
 const Router = createBrowserRouter([
@@ -31,15 +35,33 @@ const Router = createBrowserRouter([
                 element:<PrivateRouter><AllProperties></AllProperties></PrivateRouter>
             },
             {
-                path:'/dashboard',
-                element:<PrivateRouter><Dashboard></Dashboard></PrivateRouter>
-            },
-            {
                 path:'/details/:id',
                 element:<PrivateRouter><Details></Details></PrivateRouter>
             }
         ]
-    }
+    },
+    {
+        path:'/dashboard',
+        element:<PrivateRouter><Dashboard></Dashboard></PrivateRouter>,
+        children:[
+            {
+                path:'/dashboard',
+                element:<UserProfile></UserProfile>
+            },
+            {
+                path:'/dashboard/wishlist',
+                element:<Wishlist></Wishlist>
+            },
+            {
+                path:'/dashboard/propertyBought',
+                element:<PropertyBought></PropertyBought>
+            },
+            {
+                path:'/dashboard/myReviews',
+                element:<MyReviews></MyReviews>
+            }
+        ]
+    },
 ])
 
 export default Router;

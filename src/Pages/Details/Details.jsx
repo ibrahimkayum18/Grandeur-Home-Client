@@ -59,11 +59,11 @@ const Details = () => {
         </div>
       </div>
 
-      <div>
+      <div className="my-10">
         <h2 className="text-3xl text-center">
           Customers Reviews On this Property
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 ">
             {
                 allReview.map(item => <div key={item._id} className="px-5 lg:px-0 space-y-3 p-8">
                 <img className="w-32 h-32 mx-auto rounded-full" src={item.reviewre_photo} alt="" />
