@@ -12,6 +12,7 @@ import Wishlist from "../Pages/Dashboard/UserPanel/Wishlist/Wishlist";
 import PropertyBought from "../Pages/Dashboard/UserPanel/PropertyBought/PropertyBought";
 import MyReviews from "../Pages/Dashboard/UserPanel/MyReviews/MyReviews";
 import AgentProfile from "../Pages/Dashboard/AgentPanel/AgentProfile";
+import ManageUsers from "../Pages/Dashboard/AdminPanel/ManageUsers";
 
 
 const Router = createBrowserRouter([
@@ -64,6 +65,10 @@ const Router = createBrowserRouter([
             {
                 path:'/dashboard/agentProfile',
                 element:<AgentProfile></AgentProfile>
+            },
+            {
+                path:'/dashboard/manageUsers',
+                element:<ManageUsers></ManageUsers>
             }
         ]
     },

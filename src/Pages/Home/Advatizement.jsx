@@ -2,16 +2,16 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { RiVerifiedBadgeFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
-import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const Advatizement = () => {
-  const axiosSecure = useAxiosSecure();
+  const axiosPublic = useAxiosPublic();
   const [properties, setProperties] = useState([]);
   useEffect(() => {
-    axiosSecure.get("/properties").then((res) => {
+    axiosPublic.get("/properties").then((res) => {
       setProperties(res.data);
     });
-  }, [axiosSecure]);
+  }, [axiosPublic]);
   console.log(properties);
   return (
     <div className="my-20 lg:mx-10">

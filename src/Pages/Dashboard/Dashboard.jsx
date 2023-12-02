@@ -3,8 +3,8 @@ import { Link, NavLink, Outlet } from "react-router-dom";
 import { HiMenu } from "react-icons/hi";
 
 const Dashboard = () => {
-  const isAdmin = false;
-  const isAgent = true;
+  const isAdmin = true;
+  const isAgent = false;
   return (
     <div>
       <Helmet>
@@ -40,9 +40,7 @@ const Dashboard = () => {
                       <NavLink to={"/dashboard/manageProperties"}>Manage Properties</NavLink>
                     </li>
                     <li className="list-none">
-                      <NavLink to={"/dashboard/manageUsers"}>
-                        Manage Users
-                      </NavLink>
+                      <NavLink to={"/dashboard/manageUsers"}>Manage Users</NavLink>
                     </li>
                     <li className="list-none">
                       <NavLink to={"/dashboard/manageReviews"}>Manage Reviews</NavLink>
@@ -103,7 +101,7 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <div className="">
+        <div className="w-full">
           <Outlet></Outlet>
         </div>
       </div>
