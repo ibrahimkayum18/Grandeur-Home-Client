@@ -13,6 +13,8 @@ import PropertyBought from "../Pages/Dashboard/UserPanel/PropertyBought/Property
 import MyReviews from "../Pages/Dashboard/UserPanel/MyReviews/MyReviews";
 import AgentProfile from "../Pages/Dashboard/AgentPanel/AgentProfile";
 import ManageUsers from "../Pages/Dashboard/AdminPanel/ManageUsers";
+import AddProperty from "../Pages/Dashboard/AgentPanel/AddProperty";
+import MyAddededProperties from "../Pages/Dashboard/AgentPanel/MyAddededProperties";
 
 
 const Router = createBrowserRouter([
@@ -62,10 +64,22 @@ const Router = createBrowserRouter([
                 path:'/dashboard/myReviews',
                 element:<MyReviews></MyReviews>
             },
+
+            //agent routes
             {
                 path:'/dashboard/agentProfile',
                 element:<AgentProfile></AgentProfile>
             },
+            {
+                path:'/dashboard/addProperty',
+                element:<AddProperty></AddProperty>
+            },
+            {
+                path:'/dashboard/myAddededProperties',
+                element:<MyAddededProperties></MyAddededProperties>,
+            },
+
+            //admin routes
             {
                 path:'/dashboard/manageUsers',
                 element:<ManageUsers></ManageUsers>

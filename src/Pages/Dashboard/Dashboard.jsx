@@ -4,7 +4,7 @@ import { HiMenu } from "react-icons/hi";
 
 const Dashboard = () => {
   const isAdmin = false;
-  const isAgent = false;
+  const isAgent = true;
   return (
     <div>
       <Helmet>

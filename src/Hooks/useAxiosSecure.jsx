@@ -12,7 +12,7 @@ const useAxiosSecure = () => {
     const {logOut} = useContext(AuthContext);
     axiosSecure.interceptors.request.use(function (config){
         const token = localStorage.getItem('token')
-        console.log('req stoped by interceptors', token);
+        // console.log('req stoped by interceptors', token);
         config.headers.authorization = `Bearer ${token}`
         return config
     },function(err){
