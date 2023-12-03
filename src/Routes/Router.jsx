@@ -15,6 +15,10 @@ import AgentProfile from "../Pages/Dashboard/AgentPanel/AgentProfile";
 import ManageUsers from "../Pages/Dashboard/AdminPanel/ManageUsers";
 import AddProperty from "../Pages/Dashboard/AgentPanel/AddProperty";
 import MyAddededProperties from "../Pages/Dashboard/AgentPanel/MyAddededProperties";
+import Update from "../Pages/Dashboard/AgentPanel/Update/Update";
+import ManageReviews from "../Pages/Dashboard/AdminPanel/ManageReviews";
+import ManageProperties from "../Pages/Dashboard/AdminPanel/ManageProperties";
+import AdminProfile from "../Pages/Dashboard/AdminPanel/AdminProfile";
 
 
 const Router = createBrowserRouter([
@@ -78,13 +82,30 @@ const Router = createBrowserRouter([
                 path:'/dashboard/myAddededProperties',
                 element:<MyAddededProperties></MyAddededProperties>,
             },
+            
 
             //admin routes
             {
                 path:'/dashboard/manageUsers',
                 element:<ManageUsers></ManageUsers>
+            },
+            {
+                path:'/dashboard/manageReviews',
+                element: <ManageReviews></ManageReviews>
+            },
+            {
+                path:'/dashboard/manageProperties',
+                element:<ManageProperties></ManageProperties>
+            },
+            {
+                path:'/dashboard/adminProfile',
+                element:<AdminProfile></AdminProfile>
             }
         ]
+    },
+    {
+        path:'/update/:id',
+        element:<Update></Update>
     },
 ])
 

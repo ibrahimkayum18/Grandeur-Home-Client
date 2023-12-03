@@ -1,10 +1,14 @@
 import { Helmet } from "react-helmet";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import { HiMenu } from "react-icons/hi";
+import useAdmin from "../../Hooks/useAdmin";
+import useAgent from "../../Hooks/useAgent";
 
 const Dashboard = () => {
-  const isAdmin = false;
-  const isAgent = true;
+  // const isAdmin = true;
+  // const isAgent = true;
+  const [isAdmin] = useAdmin();
+  const [isAgent] = useAgent();
   return (
     <div>
       <Helmet>

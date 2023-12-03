@@ -1,19 +1,44 @@
-
 import { useContext } from "react";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import useMyProperty from "../../../Hooks/useMyProperty";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const MyAddededProperties = () => {
-  const [myAllProperties] = useMyProperty()
-  console.log('myProperty',myAllProperties);
-// const {user} = useContext(AuthContext)
-// const axiosSecure = useAxiosSecure();
-// axiosSecure.get(`/properties?agent_email=${user?.email}`)
-// .then(res => {
-//     console.log(res.data);
-// })
+  const [myAllProperties , refetch] = useMyProperty();
+  console.log("myProperty", myAllProperties);
+  // const {user} = useContext(AuthContext)
+  const axiosSecure = useAxiosSecure();
+  // axiosSecure.get(`/properties?agent_email=${user?.email}`)
+  // .then(res => {
+  //     console.log(res.data);
+  // })
+
+  const handleDelete = (property) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure.delete(`/properties/${property._id}`).then((res) => {
+          if (res.data.deletedCount > 0) {
+            refetch()
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success",
+            });
+          }
+        });
+      }
+    });
+  };
 
   return (
     <div>
@@ -51,10 +76,18 @@ const MyAddededProperties = () => {
             </div>
             <div className="text-center my-4 flex gap-5 justify-center items-center">
               <div>
-                <Link to={`update/${property._id}`}><button className="btn border-b-4 border-green-600"> Update</button></Link>
+                <Link to={`/update/${property._id}`}>
+                  <button className="btn border-b-4 border-green-600">
+                    {" "}
+                    Update
+                  </button>
+                </Link>
               </div>
               <div>
-                <button className="btn border-b-4 border-red-600">
+                <button
+                  onClick={() => handleDelete(property)}
+                  className="btn border-b-4 border-red-600"
+                >
                   Delete
                 </button>
               </div>

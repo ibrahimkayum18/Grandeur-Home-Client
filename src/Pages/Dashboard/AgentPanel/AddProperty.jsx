@@ -9,7 +9,7 @@ import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { reload } from "firebase/auth";
 
-const AddJob = () => {
+const AddProperty = () => {
     const {user} = useContext(AuthContext);
     const axiosSecure = useAxiosSecure()
 
@@ -23,7 +23,7 @@ const AddJob = () => {
     const agent_name = user.displayName;
     const agent_image = user.photoURL;
     const agent_email = user.email
-    const property = {property_title, property_location, property_image, price_range, agent_name, agent_image,agent_email }
+    const property = {property_title, property_location, property_image, price_range, agent_name, agent_image,agent_email } 
 
     axiosSecure.post('/properties', property)
     .then(res => {
@@ -109,4 +109,4 @@ const AddJob = () => {
   );
 };
 
-export default AddJob;
+export default AddProperty;
