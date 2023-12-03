@@ -2,6 +2,7 @@ import Swal from "sweetalert2";
 import useWishlist from "../../../../Hooks/useWishlist";
 import { ImCross } from "react-icons/im";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
+import { Link } from "react-router-dom";
 
 const Wishlist = () => {
   const [myWishes, refetch] = useWishlist();
@@ -39,10 +40,13 @@ const Wishlist = () => {
       <div className="my-5 w-full">
         <hr />
       </div>
+      <div>
+        <Link to={'/dashboard/payment'}> <button className="btn">Payment</button></Link>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {myWishes.map((wishes) => (
           <div key={wishes._id} className="bg-gray-100 rounded-lg">
-            <img className="rounded-t-lg" src={wishes.property_image} alt="" />
+            <img className="rounded-t-lg h-60" src={wishes.property_image} alt="" />
             <div className="px-3">
               <h2 className="text-xl font-bold">{wishes.property_title}</h2>
               <p>Location: {wishes.property_location}</p>
@@ -63,28 +67,7 @@ const Wishlist = () => {
             </div>
             <div className="text-center my-4 flex gap-5 justify-center items-center">
               <div>
-                <button
-                  className="btn border-b-4 border-green-600"
-                  onClick={() =>
-                    document.getElementById("my_modal_1").showModal()
-                  }
-                >
-                  Make an Offer
-                </button>
-                <dialog id="my_modal_1" className="modal">
-                  <div className="modal-box">
-                    <h3 className="font-bold text-lg">Hello!</h3>
-                    <p className="py-4">
-                      Press ESC key or click the button below to close
-                    </p>
-                    <div className="modal-action">
-                      <form method="dialog">
-                        {/* if there is a button in form, it will close the modal */}
-                        <button className="btn">Close</button>
-                      </form>
-                    </div>
-                  </div>
-                </dialog>
+                <Link to={`/makeOffer/${wishes._id}`}><button className="btn border-b-4 border-green-600">Make an Offer</button></Link>
               </div>
               <div>
                 <button onClick={() => handleDelete(wishes._id)} className="btn border-b-4 border-red-600">

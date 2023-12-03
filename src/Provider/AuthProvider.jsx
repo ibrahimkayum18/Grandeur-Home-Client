@@ -49,9 +49,9 @@ import useAxiosPublic from "../Hooks/useAxiosPublic";
           const userInfo = {email: user.email}
           axiosPublic.post('/jwt', userInfo)
           .then(res => {
-            console.log(res.data);
+            // console.log(res.data);
             if(res.data.token){
-              console.log(res.data.token);
+              // console.log(res.data.token);
               localStorage.setItem('token', res.data.token)
             }
           })

@@ -73,7 +73,8 @@ const Details = () => {
           </h2>
           <p>Location: {property.property_location}</p>
           <p>Description</p>
-          <p>Proce: {property.price_range}</p>
+          <p>Price: {property.price_range}$</p>
+          <p>Agent Name: {property.agent_name}</p>
           <button onClick={() =>handleAddToWishlist(property)} className="btn btn-primary">Add to wishlist</button>
         </div>
       </div>

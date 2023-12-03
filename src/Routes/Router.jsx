@@ -19,12 +19,16 @@ import Update from "../Pages/Dashboard/AgentPanel/Update/Update";
 import ManageReviews from "../Pages/Dashboard/AdminPanel/ManageReviews";
 import ManageProperties from "../Pages/Dashboard/AdminPanel/ManageProperties";
 import AdminProfile from "../Pages/Dashboard/AdminPanel/AdminProfile";
+import MakeOffer from "../Pages/Dashboard/MakeOffer";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import PaymentGetway from "../Pages/Payment/PaymentGetway";
 
 
 const Router = createBrowserRouter([
     {
         path:'/',
         element:<Main></Main>,
+        errorElement:<ErrorPage></ErrorPage>,
         children: [
             {
                 path:'/',
@@ -51,10 +55,15 @@ const Router = createBrowserRouter([
     {
         path:'/dashboard',
         element:<PrivateRouter><Dashboard></Dashboard></PrivateRouter>,
+        errorElement:<ErrorPage></ErrorPage>,
         children:[
             {
                 path:'/dashboard/userProfile',
                 element:<UserProfile></UserProfile>
+            },
+            {
+                path:'/dashboard/payment',
+                element:<PaymentGetway></PaymentGetway>
             },
             {
                 path:'/dashboard/wishlist',
@@ -105,8 +114,10 @@ const Router = createBrowserRouter([
     },
     {
         path:'/update/:id',
-        element:<Update></Update>
+        element:<Update></Update>,
+        errorElement:<ErrorPage></ErrorPage>
     },
+    
 ])
 
 export default Router;
