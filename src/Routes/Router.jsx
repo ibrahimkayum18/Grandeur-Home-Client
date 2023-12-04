@@ -22,6 +22,7 @@ import AdminProfile from "../Pages/Dashboard/AdminPanel/AdminProfile";
 import MakeOffer from "../Pages/Dashboard/MakeOffer";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import PaymentGetway from "../Pages/Payment/PaymentGetway";
+import RequestedProperties from "../Pages/Dashboard/AgentPanel/RequestedProperties";
 
 
 const Router = createBrowserRouter([
@@ -91,6 +92,10 @@ const Router = createBrowserRouter([
                 path:'/dashboard/myAddededProperties',
                 element:<MyAddededProperties></MyAddededProperties>,
             },
+            {
+                path:'/dashboard/requestedProperties',
+                element:<RequestedProperties></RequestedProperties>
+            },
             
 
             //admin routes
@@ -117,6 +122,11 @@ const Router = createBrowserRouter([
         element:<Update></Update>,
         errorElement:<ErrorPage></ErrorPage>
     },
+    {
+        path:'/makeOffer/:id',
+        element:<MakeOffer></MakeOffer>,
+        errorElement:<ErrorPage></ErrorPage>
+    }
     
 ])
 

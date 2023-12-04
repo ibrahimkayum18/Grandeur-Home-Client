@@ -40,9 +40,6 @@ const Wishlist = () => {
       <div className="my-5 w-full">
         <hr />
       </div>
-      <div>
-        <Link to={'/dashboard/payment'}> <button className="btn">Payment</button></Link>
-      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {myWishes.map((wishes) => (
           <div key={wishes._id} className="bg-gray-100 rounded-lg">

@@ -3,16 +3,16 @@ import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import useProperties from "../../Hooks/useProperties";
 
 const AllProperties = () => {
-  const axiosSecure = useAxiosSecure()
-  const [properties, setProperties] = useState([]);
-  useEffect(() => {
-    axiosSecure
-      .get("/properties")
-      .then((res) => setProperties(res.data));
-  }, [axiosSecure]);
-  console.log(properties);
+  const [properties, refetch] = useProperties()
+  // useEffect(() => {
+  //   if(properties.length > 0){
+  //     const find = properties.filter(item => item.verification === 'verified')
+  //     console.log(find);
+  //   }
+  // },[])
   return (
     <div>
       <Helmet>

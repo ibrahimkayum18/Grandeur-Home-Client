@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useContext, useEffect, useRef, useState } from "react";
 import useWishlist from "../../Hooks/useWishlist";
 import { AuthContext } from "../../Provider/AuthProvider";
@@ -13,6 +13,7 @@ const MakeOffer = () => {
   const {user} = useContext(AuthContext)
   const inputRef = useRef();
   const axiosSecure = useAxiosSecure();
+  const navigate = useNavigate();
 //   const [lowerPrice, setLowerPrice] = useState(0)
 //   const [higherPrice, setHigherPrice] = useState(0)
   //   console.log(id);
@@ -36,6 +37,7 @@ const MakeOffer = () => {
     // if(price >= lowerPrice && price <= higherPrice){
         const offerdProperty = {
             offered_price: price,
+            property_image: wishedProperty.property_image,
             property_title: wishedProperty.property_title,
             property_location: wishedProperty.property_location,
             agent_name:wishedProperty.agent_name,
@@ -54,6 +56,8 @@ const MakeOffer = () => {
                     showConfirmButton: false,
                     timer: 1500
                   });
+
+                  navigate('/dashboard/propertyBought')
             }
         })
     // }
@@ -71,7 +75,7 @@ const MakeOffer = () => {
   return (
     <div>
       <h2 className="text-3xl font-bold text-center mt-5">
-        Make an offer to buy the price
+        Make an offer to buy {wishedProperty.property_title}
       </h2>
       <div className="divider"></div>
       <div>

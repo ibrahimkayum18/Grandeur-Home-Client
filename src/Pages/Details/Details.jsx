@@ -6,7 +6,7 @@ import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 
 const Details = () => {
-    const [allReview, setAllReview] = useState([])
+  const [allReview, setAllReview] = useState([]);
   const [reviews, setReviews] = useState([]);
   const [input, setInput] = useState("");
   const [property, setProperty] = useState([]);
@@ -18,50 +18,59 @@ const Details = () => {
     if (properties.length > 0) {
       const find = properties.find((item) => item._id === id);
       setProperty(find);
-        const findReview = reviews.filter(item => item.property_title == find.property_title)
-        setAllReview(findReview);
+      const findReview = reviews.filter(
+        (item) => item.property_title == find.property_title
+      );
+      setAllReview(findReview);
     }
-    
   }, [id, properties, reviews]);
-    console.log(allReview);
+  console.log(allReview);
   useEffect(() => {
     axiosSecure.get("/reviews").then((res) => {
       setReviews(res.data);
     });
   }, [axiosSecure]);
-//   console.log(reviews);
+  //   console.log(reviews);
 
   const handleReview = () => {
     const review = {
       reviewre_name: user.displayName,
       reviewer_email: user.email,
+      agent_name: property.agent_name,
+      agent_image: property.agent_image,
+      agent_email: property.agent_email,
       reviewre_photo: user.photoURL,
       review_description: input,
       property_title: property.property_title,
-      review_date: new Date()
-
+      review_date: new Date(),
     };
-    axiosSecure.post("/reviews", review).then((res) => {
-      console.log(res.data);
-    });
+    axiosSecure.post("/reviews", review).then(() => {});
     // console.log(review);
   };
 
   // Add this property to whishlist
-  const handleAddToWishlist = item => {
-    axiosSecure.post('/wishlists',item)
-    .then(res => {
-      if(res.data.insertedId){
+  const handleAddToWishlist = (item) => {
+    const newItem = {
+      property_title: item.property_title,
+      property_location: item.property_location,
+      property_image: item.property_image,
+      price_range: item.price_range,
+      agent_name: item.agent_name,
+      agent_image: item.agent_image,
+      agent_email: item.agent_email,
+    };
+    axiosSecure.post("/wishlists", newItem).then((res) => {
+      if (res.data.insertedId) {
         Swal.fire({
           position: "top-end",
           icon: "success",
           title: "Property Addeded to Wishlist",
           showConfirmButton: false,
-          timer: 1500
+          timer: 1500,
         });
       }
-    })
-  }
+    });
+  };
 
   return (
     <div>
@@ -75,7 +84,12 @@ const Details = () => {
           <p>Description</p>
           <p>Price: {property.price_range}$</p>
           <p>Agent Name: {property.agent_name}</p>
-          <button onClick={() =>handleAddToWishlist(property)} className="btn btn-primary">Add to wishlist</button>
+          <button
+            onClick={() => handleAddToWishlist(property)}
+            className="btn btn-primary"
+          >
+            Add to wishlist
+          </button>
         </div>
       </div>
 
@@ -84,16 +98,20 @@ const Details = () => {
           Customers Reviews On this Property
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 ">
-            {
-                allReview.map(item => <div key={item._id} className="px-5 lg:px-0 space-y-3 p-8">
-                <img className="w-32 h-32 mx-auto rounded-full" src={item.reviewre_photo} alt="" />
-                <div className="px-5">
+          {allReview.map((item) => (
+            <div key={item._id} className="px-5 lg:px-0 space-y-3 p-8">
+              <img
+                className="w-32 h-32 mx-auto rounded-full"
+                src={item.reviewre_photo}
+                alt=""
+              />
+              <div className="px-5">
                 <h2 className="text-2xl">Name: {item.reviewre_name}</h2>
                 <h2 className="text-3xl">Review on: {item.property_title}</h2>
                 <p>{item.review_description}</p>
-                </div>
-            </div>)
-            }
+              </div>
+            </div>
+          ))}
         </div>
       </div>
       <div className="text-center">
