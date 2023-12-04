@@ -4,6 +4,8 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import useReviews from "../../Hooks/useReviews";
+import Footer from "../../Components/Footer";
 
 const Details = () => {
   const [allReview, setAllReview] = useState([]);
@@ -12,8 +14,10 @@ const Details = () => {
   const [property, setProperty] = useState([]);
   const [properties] = useProperties();
   const { id } = useParams();
+  console.log(id);
   const { user } = useContext(AuthContext);
   const axiosSecure = useAxiosSecure();
+  // const [myAllReviews, refetch] = useReviews();
   useEffect(() => {
     if (properties.length > 0) {
       const find = properties.find((item) => item._id === id);
@@ -58,6 +62,7 @@ const Details = () => {
       agent_name: item.agent_name,
       agent_image: item.agent_image,
       agent_email: item.agent_email,
+      buyer_email: user.email
     };
     axiosSecure.post("/wishlists", newItem).then((res) => {
       if (res.data.insertedId) {
@@ -145,6 +150,9 @@ const Details = () => {
             </div>
           </div>
         </dialog>
+      </div>
+      <div className="mt-10">
+      <Footer />
       </div>
     </div>
   );

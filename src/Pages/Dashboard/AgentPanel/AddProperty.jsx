@@ -10,45 +10,54 @@ import Swal from "sweetalert2";
 import { reload } from "firebase/auth";
 
 const AddProperty = () => {
-    const {user} = useContext(AuthContext);
-    const axiosSecure = useAxiosSecure()
+  const { user } = useContext(AuthContext);
+  const axiosSecure = useAxiosSecure();
 
-  const handleAddProperties = e => {
+  const handleAddProperties = (e) => {
     e.preventDefault();
     const form = e.target;
-    const property_title = form.property_title.value; 
+    const property_title = form.property_title.value;
     const property_location = form.property_location.value;
     const property_image = form.property_image.value;
     const price_range = form.price_range.value;
     const agent_name = user.displayName;
     const agent_image = user.photoURL;
-    const agent_email = user.email
-    const property = {property_title, property_location, property_image, price_range, agent_name, agent_image,agent_email } 
+    const agent_email = user.email;
+    const verification = 'pending';
+    const property = {
+      property_title,
+      property_location,
+      property_image,
+      price_range,
+      agent_name,
+      agent_image,
+      agent_email,
+      verification
+    };
 
-    axiosSecure.post('/properties', property)
-    .then(res => {
-        if(res.data){
-            reload()
-            Swal.fire({
-                position: "top-end",
-                icon: "success",
-                title: "Your work has been saved",
-                showConfirmButton: false,
-                timer: 1500
-              });
-        }
-    })
-
-
-  }
-
+    axiosSecure.post("/properties", property).then((res) => {
+      if (res.data) {
+        reload();
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Your work has been saved",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    });
+  };
 
   return (
     <div className="mb-20">
       <Helmet>
         <title>Add Property | Grandeur Home</title>
       </Helmet>
-      <form onSubmit={handleAddProperties}  className="w-11/12 md:w-11/12 mx-auto space-y-5 mt-5 lg:p-10 rounded-lg">
+      <form
+        onSubmit={handleAddProperties}
+        className="w-11/12 md:w-11/12 mx-auto space-y-5 mt-5 lg:p-10 rounded-lg"
+      >
         <h2 className="text-center text-4xl font-bold">Add Property Now</h2>
         <div className="md:flex justify-center items-center gap-5 space-y-5 md:space-y-0">
           <div className="md:flex flex-col md:w-1/2 relative">
@@ -100,10 +109,14 @@ const AddProperty = () => {
               placeholder="State Your Price..."
               className="pl-8 border-b-2 font-display focus:outline-none focus:border-primarycolor transition-all duration-500 capitalize text-lg w-full"
             />
-            
           </div>
         </div>
-        <button type="submit" className="font-bold bg-sky-300 w-full py-3 btn rounded-lg">Add Property</button>
+        <button
+          type="submit"
+          className="font-bold bg-sky-300 w-full py-3 btn rounded-lg"
+        >
+          Add Property
+        </button>
       </form>
     </div>
   );

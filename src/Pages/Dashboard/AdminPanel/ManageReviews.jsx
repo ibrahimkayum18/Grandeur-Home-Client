@@ -19,6 +19,7 @@ const ManageReviews = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axiosSecure.delete(`/reviews/${review._id}`).then((res) => {
+          refetch()
             console.log(res.data);
           if (res.data.deletedCount > 0) {
             refetch()

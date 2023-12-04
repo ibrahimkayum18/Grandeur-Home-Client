@@ -53,7 +53,7 @@ const Dashboard = () => {
                 ) : isAgent ?(
                   <>
                     <li className="list-none">
-                      <NavLink to={"/dashboard/agentProfile"}>Agent Profile</NavLink>
+                      <NavLink to={"/dashboard"}>Agent Profile</NavLink>
                     </li>
                     <li className="list-none">
                       <NavLink to={"/dashboard/addProperty"}>Add Property</NavLink>
@@ -73,7 +73,7 @@ const Dashboard = () => {
                 ) : (
                   <>
                     <li className="list-none">
-                      <NavLink to={"/dashboard/userProfile"}>My Profile</NavLink>
+                      <NavLink to={"/dashboard"}>My Profile</NavLink>
                     </li>
                     <li className="list-none">
                       <NavLink to={"/dashboard/wishlist"}>Wishlist</NavLink>

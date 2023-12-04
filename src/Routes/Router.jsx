@@ -23,6 +23,7 @@ import MakeOffer from "../Pages/Dashboard/MakeOffer";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import PaymentGetway from "../Pages/Payment/PaymentGetway";
 import RequestedProperties from "../Pages/Dashboard/AgentPanel/RequestedProperties";
+import MySoldProperties from "../Pages/Dashboard/AgentPanel/MySoldProperties";
 
 
 const Router = createBrowserRouter([
@@ -59,7 +60,7 @@ const Router = createBrowserRouter([
         errorElement:<ErrorPage></ErrorPage>,
         children:[
             {
-                path:'/dashboard/userProfile',
+                path:'/dashboard',
                 element:<UserProfile></UserProfile>
             },
             {
@@ -81,7 +82,7 @@ const Router = createBrowserRouter([
 
             //agent routes
             {
-                path:'/dashboard/agentProfile',
+                path:'/dashboard',
                 element:<AgentProfile></AgentProfile>
             },
             {
@@ -95,6 +96,10 @@ const Router = createBrowserRouter([
             {
                 path:'/dashboard/requestedProperties',
                 element:<RequestedProperties></RequestedProperties>
+            },
+            {
+                path:'/dashboard/mySoldProperties',
+                element:<MySoldProperties></MySoldProperties>
             },
             
 
@@ -112,7 +117,7 @@ const Router = createBrowserRouter([
                 element:<ManageProperties></ManageProperties>
             },
             {
-                path:'/dashboard/adminProfile',
+                path:'/dashboard',
                 element:<AdminProfile></AdminProfile>
             }
         ]

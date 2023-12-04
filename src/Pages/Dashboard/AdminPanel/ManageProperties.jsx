@@ -88,6 +88,7 @@ const ManageProperties = () => {
                 <td>{item.agent_email}</td>
                 <td>{item.agent_name}</td>
                 <td>${item.price_range}</td>
+
                 {item.verification === "pending" ? (
                   <td className="text-green-600">
                     <button
@@ -102,6 +103,7 @@ const ManageProperties = () => {
                 ) : (
                   <td className="text-green-600">Verified</td>
                 )}
+
                 {item.verification === "pending" ? (
                   <td className="text-green-600">
                     <button
@@ -111,7 +113,7 @@ const ManageProperties = () => {
                       <ImCross />
                     </button>
                   </td>
-                ) : item.status === "verified" ? (
+                ) : item.verification === "verified" ? (
                   <td></td>
                 ) : (
                   <td className="text-red-600">Rejected</td>

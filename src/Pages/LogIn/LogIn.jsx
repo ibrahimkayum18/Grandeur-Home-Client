@@ -7,6 +7,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
+
 const Login = () => {
   const [email, setEmail] = useState('')
   const [user, setUser] = useState([])
@@ -58,7 +59,7 @@ const Login = () => {
                showConfirmButton: false,
                timer: 2000
              });
-             navigate('/')
+             navigate(location?.state ? location.state : '/')
            }
          })
         

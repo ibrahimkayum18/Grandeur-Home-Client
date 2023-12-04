@@ -12,6 +12,7 @@ const AgentProfile = () => {
           <div>
             <h2 className="text-xl font-bold">User Name: {user.displayName}</h2>
             <p>User Email: {user.email}</p>
+            <p>Role: Agent</p>
           </div>
         </div>
       </div>

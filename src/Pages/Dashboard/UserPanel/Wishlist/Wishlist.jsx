@@ -3,10 +3,20 @@ import useWishlist from "../../../../Hooks/useWishlist";
 import { ImCross } from "react-icons/im";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 import { Link } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../../../Provider/AuthProvider";
 
 const Wishlist = () => {
   const [myWishes, refetch] = useWishlist();
+  const [wishes1, setWishes1] = useState([])
+  const {user} = useContext(AuthContext)
   const axiosSecure = useAxiosSecure();
+  useEffect(() => {
+    if(myWishes.length >0){
+      const filter = myWishes.filter(item => item.buyer_email === user.email);
+      setWishes1(filter)
+    }
+  },[myWishes, user.email])
   const handleDelete = id => {
     Swal.fire({
         title: "Are you sure?",
@@ -41,7 +51,7 @@ const Wishlist = () => {
         <hr />
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {myWishes.map((wishes) => (
+        {wishes1.map((wishes) => (
           <div key={wishes._id} className="bg-gray-100 rounded-lg">
             <img className="rounded-t-lg h-60" src={wishes.property_image} alt="" />
             <div className="px-3">

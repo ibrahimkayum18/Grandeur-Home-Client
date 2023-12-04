@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import useMyProperty from "../../../Hooks/useMyProperty";
 import { AuthContext } from "../../../Provider/AuthProvider";
@@ -6,14 +6,18 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const MyAddededProperties = () => {
+  const [myProperty, setMyProperty] = useState([])
   const [myAllProperties , refetch] = useMyProperty();
   console.log("myProperty", myAllProperties);
-  // const {user} = useContext(AuthContext)
+  const {user} = useContext(AuthContext)
   const axiosSecure = useAxiosSecure();
-  // axiosSecure.get(`/properties?agent_email=${user?.email}`)
-  // .then(res => {
-  //     console.log(res.data);
-  // })
+
+  useEffect(() => {
+    if(myAllProperties.length > 0){
+      const filter = myAllProperties.filter(item => item.agent_email === user.email)
+      setMyProperty(filter);
+    }
+  },[myAllProperties, user.email])
 
   const handleDelete = (property) => {
     Swal.fire({
@@ -47,7 +51,7 @@ const MyAddededProperties = () => {
       </h2>
       <div className="divider"></div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {myAllProperties.map((property, index) => (
+        {myProperty.map((property, index) => (
           <div key={index} className="bg-gray-100 rounded-lg">
             <img
               className="rounded-t-lg w-full h-60"
