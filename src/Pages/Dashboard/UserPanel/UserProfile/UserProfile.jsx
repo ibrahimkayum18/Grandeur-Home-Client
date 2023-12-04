@@ -9,8 +9,8 @@ const UserProfile = () => {
       <div className="md:flex gap-5 items-center">
         <img className="w-64" src={user.photoURL} alt="" />
         <div>
-          <h2 className="text-xl font-bold">User Name: {user.displayName}</h2>
-          <p>User Email: {user.email}</p>
+          <h2 className="text-xl font-bold">Name: {user.displayName}</h2>
+          <p>Email: {user.email}</p>
         </div>
       </div>
     </div>

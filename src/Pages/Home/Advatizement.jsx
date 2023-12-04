@@ -1,4 +1,4 @@
-import axios from "axios";
+
 import { useEffect, useState } from "react";
 import { RiVerifiedBadgeFill } from "react-icons/ri";
 import { Link } from "react-router-dom";

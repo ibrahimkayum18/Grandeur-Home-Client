@@ -64,8 +64,7 @@ const Banner = () => {
                 </div>
                 <div>
                   <p className="w-[90%] py-5 font-medium">
-                    "Our website provides a safe and anonymous platform for
-                    individuals to report crimes they've experienced. 
+                    Our agents set goals to help guide both the long- and short-term trajectory of their careers.  
                   </p>
                   <Link to={'/allProperties'}>
                     <button className="btn btn-primary">View The Properties</button>
@@ -108,8 +107,7 @@ const Banner = () => {
                 </div>
                 <div className="text-center lg:text-left">
                   <p className="w-[90%] lg:w-1/2 py-5 font-medium">
-                    "Our website provides a safe and anonymous platform for
-                    individuals to report crimes they've experienced. 
+                    Our agents set goals to help guide both the long- and short-term trajectory of their careers.  
                   </p>
                   <Link to={'/allProperties'}>
                     <button className="btn btn-primary">View The Properties</button>
