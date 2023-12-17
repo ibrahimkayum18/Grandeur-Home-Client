@@ -1,8 +1,10 @@
-# React + Vite
+# Grandeur Home
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A real state property dealing website where you can buy property as a user and sell the property as an agent. Project features-
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+ 3 different roles are set in the project, user, agent, and admin panel 
+.User can offer price and buy property.
+The agent accepts or declines the user-offered amount, and adds the property 
+The agent verifies the property, manages users and creates agents
+For security, I used Firebase authentication. 
+Hyperlink: https://final-assignment-136ef.web.app
