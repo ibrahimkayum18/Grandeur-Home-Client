@@ -12,11 +12,11 @@ const Reviews = () => {
   return (
     <div>
       <div className="text-center mb-10">
-        <h2 className="text-4xl font-bold">Our User Reviews</h2>
+        <h2 className="text-4xl font-bold" data-aos="zoom-in">Our User Reviews</h2>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 lg:px-10">
         {reviews.splice(0, 3).map((item, index) => (
-          <div key={index} className="px-5 m-5 lg:m-0 rounded-lg lg:px-0 space-y-3 p-8 bg-gray-300">
+          <div key={index} data-aos="fade-right" className="px-5 m-5 lg:m-0 rounded-lg lg:px-0 space-y-3 p-8 bg-gray-300">
             <img
               className="w-28 h-28 mx-auto rounded-full"
               src={item.reviewre_photo}

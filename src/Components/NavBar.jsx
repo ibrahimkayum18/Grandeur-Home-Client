@@ -65,11 +65,11 @@ const NavBar = () => {
     </>
   );
   return (
-    <div className="drawer z-50 ">
+    <div className="drawer z-50 text-white">
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col">
         {/* Navbar */}
-        <div className="w-full navbar bg-zinc-800 text-white">
+        <div className="w-full navbar bg-gradient-to-r from-cyan-500 to-blue-500">
           <div className="flex-none lg:hidden">
             <label
               htmlFor="my-drawer-3"

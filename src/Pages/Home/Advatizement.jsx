@@ -14,19 +14,21 @@ const Advatizement = () => {
   }, [axiosPublic]);
   console.log(properties);
   return (
-    <div className="mt-10 lg:mx-10">
-        <div className="text-center">
+    <div className="mt-10 lg:mx-10 overflow-hidden" >
+        <div className="text-center overflow-hidden" data-aos="fade-up">
             <h2 className="text-4xl font-bold">Best Property Today!!!</h2>
             <p className="text-xl mt-4">Check It Quickly</p>
         </div>
         <div className="my-10">
             <hr />
         </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 md:px-5 lg:px-0">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 overflow-hidden gap-5 md:px-5 lg:px-0">
         {properties.slice(0,4).map((item, index) => (
           <div
             key={index}
-            className=" card-compact  bg-base-100 shadow-xl "
+            className=" card-compact overflow-hidden bg-base-100 shadow-xl "
+            data-aos="flip-right"
+            data-aos-duration="2000"
           >
             <figure>
               <img className="w-full h-48" src={item.property_image} alt="Shoes" />
