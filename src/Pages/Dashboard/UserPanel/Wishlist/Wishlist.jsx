@@ -46,14 +46,12 @@ const Wishlist = () => {
 
   return (
     <div className="w-full">
-      <h2 className="text-3xl font-bold pt-8">Wish To Buy</h2>
-      <div className="my-5 w-full">
-        <hr />
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <h2 className="text-3xl font-bold text-center py-4">Wish To Buy</h2>
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:px-5 md:gap-5">
         {wishes1.map((wishes) => (
-          <div key={wishes._id} className="bg-gray-100 rounded-lg">
-            <img className="rounded-t-lg h-60" src={wishes.property_image} alt="" />
+          <div key={wishes._id} className="bg-gray-100 rounded-lg pb-4 md:pb-0">
+            <img className="md:rounded-t-lg h-60 w-full" src={wishes.property_image} alt="" />
             <div className="px-3">
               <h2 className="text-xl font-bold">{wishes.property_title}</h2>
               <p>Location: {wishes.property_location}</p>

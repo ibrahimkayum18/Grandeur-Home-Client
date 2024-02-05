@@ -21,7 +21,7 @@ const PropertyBought = () => {
 
   return (
     <div>
-      <h2 className="mt-5 text-3xl font-bold text-center">
+      <h2 className="pt-5 text-3xl font-bold text-center">
         Total Property Bought
       </h2>
       <div className="divider"></div>
@@ -33,11 +33,11 @@ const PropertyBought = () => {
           </p>
         </>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-5 bg-gray-100">
           {myProperty.map((wishes) => (
-            <div key={wishes._id} className="bg-gray-100 rounded-lg">
+            <div key={wishes._id} className="bg-base-100 rounded-lg w-full">
               <img
-                className="rounded-t-lg h-60"
+                className="w-full h-60 "
                 src={wishes.property_image}
                 alt=""
               />

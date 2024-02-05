@@ -29,7 +29,7 @@ const MyReviews = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axiosSecure.delete(`/wishlists/${id}`).then((res) => {
+        axiosSecure.delete(`/reviews/${id}`).then((res) => {
           console.log(res.data);
           if (res.data.acknowledged) {
             refetch();
@@ -44,10 +44,10 @@ const MyReviews = () => {
     });
   };
   return (
-    <div>
+    <div className="z-20">
       <h2 className="text-center pt-5 text-3xl font-bold">My All Reviews</h2>
-      <div className="overflow-x-auto ">
-        <table className="table mt-14 w-full">
+      <div className="overflow-x-auto z-10">
+        <table className="table mt-14 w-full -z-50">
          
           <thead>
             <tr>
@@ -67,10 +67,10 @@ const MyReviews = () => {
                 <td>{reviews.agent_name}</td>
                 <td>{reviews.review_date}</td>
                 <td>{reviews.review_description}</td>
-                <th>
+                <th className="">
                   <button
                     onClick={() => handleDelete(reviews._id)}
-                    className="text-2xl text-red-500"
+                    className="text-2xl text-red-500 cursor-pointer"
                   >
                     {" "}
                     <MdDelete />

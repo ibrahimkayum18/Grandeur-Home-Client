@@ -18,13 +18,13 @@ const AllProperties = () => {
     }
   }, [properties]);
   return (
-    <div className="mt-10">
+    <div className="pt-10 bg-slate-300">
       <Helmet>
         <title>All Properties | Grandeur Home</title>
       </Helmet>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-6 md:px-5">
         {verifiedProperties.map((item) => (
-          <div key={item._id}>
+          <div key={item._id} className="bg-base-200">
             <img className="w-full h-60" src={item.property_image} alt="" />
             <div className="p-5">
             <h2 className="text-3xl font-semibold">{item.property_title}</h2>

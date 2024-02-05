@@ -65,11 +65,11 @@ const NavBar = () => {
     </>
   );
   return (
-    <div className="drawer">
+    <div className="drawer z-50 ">
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col">
         {/* Navbar */}
-        <div className="w-full navbar bg-sky-200 md:py-2 lg:py-3">
+        <div className="w-full navbar bg-zinc-800 text-white">
           <div className="flex-none lg:hidden">
             <label
               htmlFor="my-drawer-3"
@@ -93,7 +93,7 @@ const NavBar = () => {
           </div>
           <div className="flex-1 px-2 mx-2 gap-3">
             <img
-              className="h-14"
+              className="h-8 md:h-14"
               src="https://i.ibb.co/LgZG29T/New-Logo.png"
               alt=""
             />
@@ -103,7 +103,7 @@ const NavBar = () => {
           </div>
           <li>
             {user && (
-              <div className="dropdown dropdown-end mr-5">
+              <div className="dropdown dropdown-end mr-5 z-50">
                 <img
                   className="w-12 h-12 rounded-full"
                   tabIndex={0}
@@ -112,7 +112,7 @@ const NavBar = () => {
                 />
                 <ul
                   tabIndex={0}
-                  className="dropdown-content z-[50] menu p-2 shadow bg-base-100 rounded-box w-52"
+                  className="dropdown-content z-[50] menu p-2 shadow bg-zinc-600 text-white rounded-box w-52"
                 >
                   <li>
                     <a>{user.displayName}</a>
@@ -132,7 +132,7 @@ const NavBar = () => {
           aria-label="close sidebar"
           className="drawer-overlay"
         ></label>
-        <ul className="menu p-4 w-60 min-h-full bg-base-200 items-center">
+        <ul className="menu p-4 z-50 w-60 min-h-full bg-zinc-600 text-white pt-20 items-center">
           {navLinks}
         </ul>
       </div>

@@ -14,7 +14,7 @@ const Advatizement = () => {
   }, [axiosPublic]);
   console.log(properties);
   return (
-    <div className="my-20 lg:mx-10">
+    <div className="mt-10 lg:mx-10">
         <div className="text-center">
             <h2 className="text-4xl font-bold">Best Property Today!!!</h2>
             <p className="text-xl mt-4">Check It Quickly</p>
@@ -22,11 +22,11 @@ const Advatizement = () => {
         <div className="my-10">
             <hr />
         </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 px-5 lg:px-0">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 md:px-5 lg:px-0">
         {properties.slice(0,4).map((item, index) => (
           <div
             key={index}
-            className="card card-compact  bg-base-100 shadow-xl "
+            className=" card-compact  bg-base-100 shadow-xl "
           >
             <figure>
               <img className="w-full h-48" src={item.property_image} alt="Shoes" />
