@@ -68,7 +68,7 @@ const RequestedProperties = () => {
       <h2 className="pt-5 text-3xl font-bold">Requested Properties</h2>
       <div className="divider"></div>
       <div className="overflow-x-auto">
-        <table className="table">
+        <table className="table -z-50">
           {/* head */}
           <thead>
             <tr>

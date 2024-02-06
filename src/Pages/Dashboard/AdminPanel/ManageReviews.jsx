@@ -34,11 +34,11 @@ const ManageReviews = () => {
     });
   };
   return (
-    <div>
+    <div className="-z-40">
       <h2 className="text-3xl font-bold text-center mt-5">Manage Reviews</h2>
       <div className="divider"></div>
       <div className="overflow-x-auto">
-        <table className="table">
+        <table className="table -z-50">
           {/* head */}
           <thead>
             <tr>

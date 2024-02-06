@@ -93,12 +93,12 @@ const ManageUsers = () => {
 
   return (
     <div>
-      <div className="flex justify-around text-3xl font-bold my-5 gap-6">
+      <div className="flex justify-around text-3xl font-bold -z-40 my-5 gap-6">
         <h2>All Users </h2>
         <h2>total users: {users.length}</h2>
       </div>
       <div className="overflow-x-auto ">
-        <table className="table w-full">
+        <table className="table w-full -z-50">
           {/* head */}
           <thead>
             <tr>

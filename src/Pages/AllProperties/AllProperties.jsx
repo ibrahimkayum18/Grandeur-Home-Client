@@ -18,14 +18,22 @@ const AllProperties = () => {
     }
   }, [properties]);
   return (
-    <div className="pt-10 bg-slate-300">
+    <div className="bg-slate-300">
       <Helmet>
         <title>All Properties | Grandeur Home</title>
       </Helmet>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-6 md:px-5">
+      <div className="bg-gradient-to-r from-blue-500 to-purple-500 p-4" data-aos="fade-up">
+      <div className="max-w-7xl mx-auto" data-aos="fade-right"
+            data-aos-duration="2000">
+        <h1 className="text-white text-3xl font-semibold">Find Your Dream Property</h1>
+        <p className="text-white text-lg mt-2">Explore our vast collection of properties to find the perfect one for you.</p>
+      </div>
+    </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-6 md:px-5 md:mt-5">
         {verifiedProperties.map((item) => (
-          <div key={item._id} className="bg-base-200">
-            <img className="w-full h-60" src={item.property_image} alt="" />
+          <div key={item._id} className="bg-base-200 md:rounded-lg" data-aos="flip-right"
+          data-aos-duration="2000">
+            <img className="w-full h-60 md:rounded-t-lg" src={item.property_image} alt="" />
             <div className="p-5">
             <h2 className="text-3xl font-semibold">{item.property_title}</h2>
             <p>Location: {item.property_location}</p>

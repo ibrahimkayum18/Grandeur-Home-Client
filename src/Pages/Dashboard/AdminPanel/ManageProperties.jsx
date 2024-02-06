@@ -61,11 +61,11 @@ const ManageProperties = () => {
   };
 
   return (
-    <div>
+    <div className="-z-40">
       <h2 className="text-3xl font-bold pt-5">Manage Properties</h2>
       <div className="divider"></div>
-      <div>
-        <table className="table">
+      <div className="overflow-x-auto">
+        <table className="table -z-50">
           {/* head */}
           <thead>
             <tr>

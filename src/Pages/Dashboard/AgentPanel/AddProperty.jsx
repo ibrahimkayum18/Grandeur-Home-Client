@@ -50,17 +50,17 @@ const AddProperty = () => {
   };
 
   return (
-    <div className="mb-20">
+    <div className="mb-20 -z-40">
       <Helmet>
         <title>Add Property | Grandeur Home</title>
       </Helmet>
       <form
         onSubmit={handleAddProperties}
-        className="w-11/12 md:w-11/12 mx-auto space-y-5 mt-5 lg:p-10 rounded-lg"
+        className="w-11/12 md:w-11/12 -z-50 mx-auto space-y-5 mt-5 lg:p-10 rounded-lg"
       >
         <h2 className="text-center text-4xl font-bold">Add Property Now</h2>
-        <div className="md:flex justify-center items-center gap-5 space-y-5 md:space-y-0">
-          <div className="md:flex flex-col md:w-1/2 relative">
+        <div className="md:flex justify-center items-center gap-5 space-y-5 md:space-y-0 ">
+          <div className="md:flex flex-col md:w-1/2 relative -z-50">
             <label className="py-3">Property title</label>
             <div>
               <FaBusinessTime className="absolute text-primarycolor text-2xl text-gray-500"></FaBusinessTime>
@@ -72,7 +72,7 @@ const AddProperty = () => {
               className="pl-8 border-b-2 font-display focus:outline-none focus:border-primarycolor transition-all duration-500 capitalize text-lg w-full"
             />
           </div>
-          <div className="md:flex flex-col md:w-1/2 relative">
+          <div className="md:flex flex-col md:w-1/2 relative -z-50">
             <label className="py-3">Property Location</label>
             <div>
               <FaTextHeight className="absolute text-primarycolor text-2xl text-gray-500"></FaTextHeight>
@@ -85,8 +85,8 @@ const AddProperty = () => {
             />
           </div>
         </div>
-        <div className="md:flex justify-center items-center gap-5 space-y-5 md:space-y-0">
-          <div className="md:flex flex-col md:w-1/2 relative">
+        <div className="md:flex justify-center items-center gap-5  space-y-5 md:space-y-0">
+          <div className="md:flex flex-col md:w-1/2 relative -z-50">
             <label className="py-3">Property Image URL</label>
             <div>
               <FaUser className="absolute text-primarycolor text-2xl text-gray-500"></FaUser>
@@ -98,7 +98,7 @@ const AddProperty = () => {
               className="pl-8 border-b-2 font-display focus:outline-none focus:border-primarycolor transition-all duration-500 capitalize text-lg w-full"
             />
           </div>
-          <div className="md:flex flex-col md:w-1/2 relative">
+          <div className="md:flex flex-col md:w-1/2 relative -z-50">
             <label className="py-3">Price Range</label>
             <div>
               <FaTextHeight className="absolute text-primarycolor text-2xl text-gray-500"></FaTextHeight>

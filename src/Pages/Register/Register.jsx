@@ -8,6 +8,8 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import auth from "../../../firebase.config";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import emoji from './../LogIn/log in without code.json'
+import Lottie from "lottie-react";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
@@ -63,12 +65,12 @@ const Register = () => {
   };
 
   return (
-    <div  data-aos="fade-up" className="flex items-center justify-center bg-sky-200 py-10">
+    <div  data-aos="fade-up" className="lg:flex items-center justify-center bg-sky-200 lg:py-10">
       <Helmet>
         <title>Register | Grandeur Home</title>
       </Helmet>
       <div className="w-full  flex justify-center items-center">
-        <div className="p-5 md:p-10 rounded-lg w-3/4 mx-auto bg-base-100">
+        <div className="p-5 md:p-10 lg:rounded-lg w-full lg:w-3/4 mx-auto bg-base-100">
           <h2 className="text-3xl md:text-4xl font-bold text-center pb-8">
             Register Now
           </h2>
@@ -139,12 +141,8 @@ const Register = () => {
           </div>
         </div>
       </div>
-      <div className=" w-3/4 lg:pr-14">
-        <img
-          className="w-full p-5"
-          src="https://i.ibb.co/6HS80CK/istockphoto-1312423123-612x612.jpg"
-          alt=""
-        />
+      <div className="w-3/4 mx-auto ">
+        <Lottie animationData={emoji} />
       </div>
     </div>
   );

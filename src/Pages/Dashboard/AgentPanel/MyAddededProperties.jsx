@@ -50,11 +50,11 @@ const MyAddededProperties = () => {
         My All Addeded Properties
       </h2>
       <div className="divider"></div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:px-5 gap-5">
         {myProperty.map((property, index) => (
-          <div key={index} className="bg-gray-100 rounded-lg">
+          <div key={index} className="bg-gray-100 md:rounded-lg">
             <img
-              className="rounded-t-lg w-full h-60"
+              className="md:rounded-t-lg w-full h-60"
               src={property.property_image}
               alt=""
             />

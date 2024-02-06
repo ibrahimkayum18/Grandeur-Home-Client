@@ -3,12 +3,23 @@ import { Link, NavLink, Outlet } from "react-router-dom";
 import { HiMenu } from "react-icons/hi";
 import useAdmin from "../../Hooks/useAdmin";
 import useAgent from "../../Hooks/useAgent";
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Dashboard = () => {
+  const {logOut} = useContext(AuthContext)
   // const isAdmin = true;
   // const isAgent = true;
   const [isAdmin] = useAdmin();
   const [isAgent] = useAgent();
+  const handleLogOut = () => {
+    logOut()
+    .then(() => {
+      toast.success("Log Out Successfull")
+    }) 
+  }
+
   return (
     <div className="flex flex-col lg:flex-row min-h-screen ">
       <Helmet>
@@ -38,7 +49,7 @@ const Dashboard = () => {
             aria-label="close sidebar"
             className="drawer-overlay"
           ></label>
-          <ul className="menu p-4 w-64 min-h-full bg-base-200 text-base-content">
+          <ul className="menu p-4 w-64 z-50 min-h-full bg-base-200 text-base-content">
             {/* Sidebar content here */}
             <div className="">
               {isAdmin ? (
@@ -116,6 +127,9 @@ const Dashboard = () => {
                 </li>
                 <li className="list-none">
                   <Link to={"/allProperties"}>All Properties</Link>
+                </li>
+                <li className="list-none">
+                  <button onClick={handleLogOut}>Log Out</button>
                 </li>
               </div>
             </div>

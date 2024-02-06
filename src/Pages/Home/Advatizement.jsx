@@ -22,7 +22,7 @@ const Advatizement = () => {
         <div className="my-10">
             <hr />
         </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 overflow-hidden gap-5 md:px-5 lg:px-0">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 overflow-hidden md:gap-5 md:px-5 lg:px-0">
         {properties.slice(0,4).map((item, index) => (
           <div
             key={index}
@@ -31,7 +31,7 @@ const Advatizement = () => {
             data-aos-duration="2000"
           >
             <figure>
-              <img className="w-full h-48" src={item.property_image} alt="Shoes" />
+              <img className="w-full h-60" src={item.property_image} alt="Shoes" />
             </figure>
             <div className="card-body">
               <h2 className="card-title">Location: {item.property_location}</h2>
